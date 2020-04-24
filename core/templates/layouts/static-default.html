@@ -5,9 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 	<title>
-		Django Dashboard Atlantis - {% block title %}{% endblock %} | AppSeed 
+		Django Dashboard Atlantis - {% block title %}{% endblock %} | AppSeed
 	</title>
-	
+
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="/static/assets/img/icon.ico" type="image/x-icon"/>
 
@@ -16,7 +16,7 @@
 	<script>
 		WebFont.load({
 			google: {"families":["Lato:300,400,700,900"]},
-			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], 
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
 			urls: ['/static/assets/css/fonts.min.css']},
 			active: function() {
 				sessionStorage.fonts = true;
@@ -50,7 +50,7 @@
                 <div class="content">
 
                     {% block content %}{% endblock content %}
-                
+
                 </div>
 
                 {% include 'includes/footer.html' %}
@@ -67,6 +67,6 @@
 
 	<!-- Specific JS goes HERE -->
     {% block javascripts %}{% endblock javascripts %}
-	
+
 </body>
 </html>
