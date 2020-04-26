@@ -7,11 +7,20 @@ Copyright (c) 2019 - present AppSeed.us
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader
+from django.db.models import Sum, Count
 from django.http import HttpResponse
+from .models import Workout, Participant
+from datetime import datetime
+
 
 @login_required(login_url="/login/")
 def index(request):
-    return render(request, "index.html")
+    daily_workout = Workout.objects.filter(date__date = datetime.today())
+    context = daily_workout.aggregate(Sum("duration"), Sum("calories"), Count('participant', distinct=True))
+    context['total_participants'] = Participant.objects.all().count()
+    # print (context) {'duration__sum': 30, 'calories__sum': 220, 'participant__count': 2}
+
+    return render(request, "index.html", context)
 
 @login_required(login_url="/login/")
 def pages(request):

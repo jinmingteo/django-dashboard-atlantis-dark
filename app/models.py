@@ -21,6 +21,6 @@ class Participant(models.Model):
 class Workout(models.Model):
     participant = models.ForeignKey(Participant, on_delete=models.CASCADE)
     date = models.DateTimeField()
-    duration = models.DurationField()
+    duration = models.PositiveSmallIntegerField()
     activity = models.CharField(max_length=100)
     calories = models.PositiveSmallIntegerField()
